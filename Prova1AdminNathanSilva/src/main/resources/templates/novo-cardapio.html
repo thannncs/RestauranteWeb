@@ -1,0 +1,18 @@
+<form action="#" th:action="@{/adicionar-cardapio/{idRestaurante}(idRestaurante=${restaurante.id})}" th:object="${cardapio}" method="post">
+    <label for="nome">Nome: </label>
+    <input type="text" th:field="*{nome}" id="nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <br/>
+
+    <label for="preco">Preço: </label>
+    <input type="number" th:field="*{preco}" id="preco" step="0.01">
+    <span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></span>
+    <br/>
+
+    <label for="descricao">Descrição: </label>
+    <textarea th:field="*{descricao}" id="descricao"></textarea>
+    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+    <br/>
+
+    <input type="submit" value="Adicionar">
+</form>
